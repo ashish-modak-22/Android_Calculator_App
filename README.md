@@ -146,3 +146,16 @@ CalculatorApp/
 ```bash
 git clone https://github.com/ashish-modak-22/Android_Calculator_App.git
 ```
+
+---
+
+### 2. Open in Android Studio
+- Open **Android Studio**
+- Click **File → Open**
+- Navigate to the cloned folder and select it
+- Wait for Gradle sync to complete
+### 3. Run the App
+- Connect an Android device or start an emulator
+- Click the ▶️ **Run** button
+- Select your device and click **OK**
+---
