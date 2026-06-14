@@ -10,3 +10,16 @@ A modern, fully functional calculator Android app built with Kotlin featuring a 
  
 ---
 
+## ✨ Features
+ 
+- ➕ Basic arithmetic — Addition, Subtraction, Multiplication, Division
+- 📐 BODMAS/PEMDAS operator precedence
+- 💯 Percentage calculation
+- ➖ Toggle positive/negative sign
+- ⌫ Backspace — delete last character
+- 🔄 AC — clear everything instantly
+- 🔢 Decimal number support
+- ⚠️ Division by zero error handling
+- 🌙 Always-on dark theme
+- 🎨 Attractive UI with rounded, color-coded buttons
+---
