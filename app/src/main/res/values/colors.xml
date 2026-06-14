@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Background Colors -->
+    <color name="calc_background">#1C1C1E</color>       <!-- Main dark background -->
+    <color name="display_background">#1C1C1E</color>    <!-- Display area background -->
+
+    <!-- Button Colors -->
+    <color name="btn_number">#2C2C2E</color>            <!-- Number buttons - dark gray -->
+    <color name="btn_operator">#FF9F0A</color>          <!-- Operator buttons - orange -->
+    <color name="btn_action">#3A3A3C</color>            <!-- AC, +/- , % - medium gray -->
+    <color name="btn_equal">#FF9F0A</color>             <!-- Equal button - orange -->
+    <color name="btn_delete">#FF453A</color>            <!-- Delete/backspace - red -->
+
+    <!-- Text Colors -->
+    <color name="text_display">#FFFFFF</color>          <!-- Main display text - white -->
+    <color name="text_expression">#8E8E93</color>       <!-- Expression text - gray -->
+    <color name="text_number_btn">#FFFFFF</color>       <!-- Number button text - white -->
+    <color name="text_action_btn">#FFFFFF</color>       <!-- Action button text - white -->
+    <color name="text_operator_btn">#FFFFFF</color>     <!-- Operator button text - white -->
+</resources>

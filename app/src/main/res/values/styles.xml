@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base style for ALL buttons — shared properties -->
+    <!-- Removed 0dp height and width from here — handled by layout_weight in XML -->
+    <style name="CalcButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>   <!-- fills row height -->
+        <item name="android:layout_margin">6dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- Number buttons — dark gray -->
+    <style name="CalcButton.Number" parent="CalcButton">
+        <item name="android:background">@drawable/btn_rounded_number</item>
+        <item name="android:textColor">@color/text_number_btn</item>
+    </style>
+
+    <!-- Operator buttons — orange -->
+    <style name="CalcButton.Operator" parent="CalcButton">
+        <item name="android:background">@drawable/btn_rounded_operator</item>
+        <item name="android:textColor">@color/text_operator_btn</item>
+    </style>
+
+    <!-- Action buttons — medium gray (AC, +/-, %) -->
+    <style name="CalcButton.Action" parent="CalcButton">
+        <item name="android:background">@drawable/btn_rounded_action</item>
+        <item name="android:textColor">@color/text_action_btn</item>
+    </style>
+
+    <!-- Equal button — orange accent -->
+    <style name="CalcButton.Equal" parent="CalcButton">
+        <item name="android:background">@drawable/btn_rounded_equal</item>
+        <item name="android:textColor">@color/text_operator_btn</item>
+    </style>
+
+    <!-- Delete button — red -->
+    <style name="CalcButton.Delete" parent="CalcButton">
+        <item name="android:background">@drawable/btn_rounded_delete</item>
+        <item name="android:textColor">@color/text_operator_btn</item>
+    </style>
+
+</resources>

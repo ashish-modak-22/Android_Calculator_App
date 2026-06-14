@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Root layout — fills entire screen with dark background -->
+<!-- Using LinearLayoutCompat for better backward compatibility with older APIs -->
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/calc_background"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:padding="16dp">
+
+
+        <TextView
+            android:id="@+id/tvExpression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/text_expression"
+            android:textSize="28sp"
+            android:gravity="end"
+            android:maxLines="2"
+            android:ellipsize="start"
+            android:fontFamily="sans-serif-light"
+            android:paddingBottom="8dp"/>
+
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/_0"
+            android:textColor="@color/text_display"
+            android:textSize="42sp"
+            android:gravity="end"
+            android:maxLines="3"
+            android:adjustViewBounds="true"
+            android:fontFamily="sans-serif-light"
+            android:paddingBottom="16dp"
+            android:ellipsize="end"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#3F3E3D"
+        android:layout_marginBottom="8dp"/>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnClear"
+                style="@style/CalcButton.Action"
+                android:layout_weight="1"
+                android:text="@string/ac"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDelete"
+                style="@style/CalcButton.Delete"
+                android:layout_weight="1"
+                android:text="@string/delete"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnPercent"
+                style="@style/CalcButton.Action"
+                android:layout_weight="1"
+                android:text="@string/percentage"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDivide"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:text="@string/divide"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn7"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="@string/_7"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn8"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="@string/_8"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn9"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="@string/_9"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnMultiply"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:text="@string/multiply"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn4"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="@string/_4"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn5"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="@string/_5"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn6"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="@string/_6"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSubtract"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:text="@string/substract"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn1"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="@string/_1"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn2"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="@string/_2"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn3"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="@string/_3"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAdd"
+                style="@style/CalcButton.Operator"
+                android:layout_weight="1"
+                android:text="@string/add"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnToggleSign"
+                style="@style/CalcButton.Action"
+                android:layout_weight="1"
+                android:text="@string/signtoggle"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn0"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="@string/_0_"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDot"
+                style="@style/CalcButton.Number"
+                android:layout_weight="1"
+                android:text="@string/decimal"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnEqual"
+                style="@style/CalcButton.Equal"
+                android:layout_weight="1"
+                android:text="@string/equalto"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
