@@ -139,3 +139,11 @@ CalculatorApp/
  
 ---
  
+## 🚀 Getting Started
+ 
+### 1. Clone the Repository
+ 
+**Using HTTPS:**
+```bash
+git clone https://github.com/ashish-modak-22/Android_Calculator_App.git
+```
