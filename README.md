@@ -36,3 +36,13 @@ A modern, fully functional calculator Android app built with Kotlin featuring a 
 | **Gradle (Kotlin DSL)** | Build system |
  
 ---
+| Concept | Description |
+|---|---|
+| **Activity & Lifecycle** | `AppCompatActivity`, `onCreate()` |
+| **findViewById** | Connecting Kotlin code to XML views |
+| **setOnClickListener** | Handling button tap events |
+| **LinearLayoutCompat** | Arranging views vertically and horizontally |
+| **layout_weight** | Distributing equal space among buttons |
+| **AppCompatButton** | Flexible, theme-safe buttons |
+
+---
