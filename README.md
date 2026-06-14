@@ -169,3 +169,7 @@ git clone https://github.com/ashish-modak-22/Android_Calculator_App.git
 - [ ] Screen rotation support with `ViewModel`
 - [ ] Copy result to clipboard on long press
 ---
+
+> Built with ❤️ as a learning project to explore Android development with Kotlin.
+
+---
