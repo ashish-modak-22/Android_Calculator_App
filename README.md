@@ -65,7 +65,7 @@ CalculatorApp/
 │   │   └── AndroidManifest.xml          # App config, entry point
 │   │
 │   ├── kotlin+java/
-│   │   └── com.yourname.calculatorapp/
+│   │   └── com.example.calculator/
 │   │       └── MainActivity.kt          # All calculator logic
 │   │
 │   └── res/
