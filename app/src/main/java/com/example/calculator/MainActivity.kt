@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvExpression: TextView
     private lateinit var tvResult: TextView
 
-    private var currentInput = ""       // stores the ongoing expression e.g. "45+3"
-    private var isResultShown = false   // true when final result is on screen
+    private var currentInput = ""      
+    private var isResultShown = false   // This will become true when the final result is on the screen after calculation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +27,10 @@ class MainActivity : AppCompatActivity() {
         setupActionButtons()
     }
 
+    // Setting up the number buttons
     private fun setupNumberButtons() {
 
-        // map button IDs to their values to avoid repetitive click listeners
+        // Mapping the buttons to their corresponding values to avoid individual setOnClickListener , we can now iterate the map and use only one setOnClickListener
         val numberButtons = mapOf(
             R.id.btn0 to "0", R.id.btn1 to "1", R.id.btn2 to "2",
             R.id.btn3 to "3", R.id.btn4 to "4", R.id.btn5 to "5",
@@ -37,13 +38,15 @@ class MainActivity : AppCompatActivity() {
             R.id.btn9 to "9", R.id.btnDot to "."
         )
 
-        for ((id, value) in numberButtons) {
+        // Iterating the button maps and assigning each of them a setOnClickListener
+        for ((id, value) in numberButtons) { 
             findViewById<AppCompatButton>(id).setOnClickListener {
                 onNumberPressed(value)
             }
         }
     }
 
+    // Setting up the operator buttons
     private fun setupOperatorButtons() {
 
         val operatorButtons = mapOf(
@@ -58,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Setting up the action buttons
     private fun setupActionButtons() {
         findViewById<AppCompatButton>(R.id.btnClear).setOnClickListener { clearAll() }
         findViewById<AppCompatButton>(R.id.btnDelete).setOnClickListener { deleteLast() }
@@ -66,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<AppCompatButton>(R.id.btnEqual).setOnClickListener { calculateResult() }
     }
 
+    // Building up the functionality of all type of buttons
     private fun onNumberPressed(value: String) {
 
         // if result already shown, start fresh on new number press
@@ -74,7 +79,7 @@ class MainActivity : AppCompatActivity() {
             isResultShown = false
         }
 
-        // prevent multiple dots in the same number segment
+        // Preventing the user to use multiple dots since it is not a valid expression
         if (value == ".") {
             val lastSegment = currentInput.split("+", "-", "×", "÷").last()
             if (lastSegment.contains(".")) return
@@ -90,7 +95,7 @@ class MainActivity : AppCompatActivity() {
 
         isResultShown = false
 
-        // replace last operator if user presses two operators in a row
+        // Restricting the user not to use the operators consecutively 
         val lastChar = currentInput.lastOrNull()?.toString() ?: ""
         if (lastChar in listOf("+", "-", "×", "÷")) {
             currentInput = currentInput.dropLast(1)
@@ -123,7 +128,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun toggleSign() {
         if (currentInput.isEmpty()) return
-        // remove minus if exists, otherwise add it
+        // Removing the minus if it already exists
         currentInput = if (currentInput.startsWith("-"))
             currentInput.removePrefix("-")
         else "-$currentInput"
@@ -148,15 +153,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun evaluateExpression(expression: String): Double {
-        // replace display symbols with calculation symbols
+        // Removing the UI Button symbols with thei respective mathematical symbols
         val sanitized = expression.replace("×", "*").replace("÷", "/")
         return calculate(sanitized)
     }
 
     @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
+
+    // Building up the function for evaluation of the expression in BODMAS format
     private fun calculate(expression: String): Double {
 
-        // split expression into number and operator tokens
+        // Splitting expression into number and operator tokens
         val tokens = mutableListOf<String>()
         var currentNumber = ""
 
@@ -174,7 +181,7 @@ class MainActivity : AppCompatActivity() {
         }
         if (currentNumber.isNotEmpty()) tokens.add(currentNumber)
 
-        // solve * and / first (BODMAS)
+        // Solving for multiplication and division first since these have the highest priority
         var i = 0
         val processedTokens = mutableListOf<String>()
 
@@ -195,7 +202,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        //  solve + and - (lower precedence)
+        //  Solving for addition and substraction since they have lower priority
         var result = processedTokens[0].toDouble()
         var j = 1
         while (j < processedTokens.size) {
@@ -208,6 +215,7 @@ class MainActivity : AppCompatActivity() {
         return result
     }
 
+    // Formatting the output result
     private fun formatResult(result: Double): String {
         // show whole numbers without decimal point e.g. "48" not "48.0"
         return if (result == result.toLong().toDouble())
