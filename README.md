@@ -11,7 +11,7 @@ A modern, fully functional calculator Android app built with Kotlin featuring a 
 ---
 
 <p align="center">
-<img src="Screenshots/calculator_UI.jpeg width="250"/>
+<img src="Screenshots/calculator_UI.jpeg" width="250"/>
 </p>
 
 ---
