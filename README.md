@@ -25,6 +25,7 @@ A modern, fully functional calculator Android app built with Kotlin featuring a 
 - ➕ Basic arithmetic — Addition, Subtraction, Multiplication, Division
 - 📐 BODMAS/PEMDAS operator precedence
 - 💯 Percentage calculation
+- ➕ Database support where user can watch recent operations
 - ➖ Toggle positive/negative sign
 - ⌫ Backspace — delete last character
 - 🔄 AC — clear everything instantly
