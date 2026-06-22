@@ -61,7 +61,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,
 
         // Query for getting all rows(newest rows first)
         val cursor = db.rawQuery(
-            "SELECT $COLUMN_EXPRESSION, $COLUMN_RESULT FROM $TABLE_NAME ORDER BY $COLUMN_ID DESC",
+            "SELECT $COLUMN_ID, $COLUMN_EXPRESSION, $COLUMN_RESULT FROM $TABLE_NAME ORDER BY $COLUMN_ID DESC",
             null
         )
 

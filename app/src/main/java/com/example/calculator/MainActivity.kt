@@ -1,18 +1,20 @@
 package com.example.calculator
 
-import android.os.Build
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatButton
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var tvExpression: TextView
     private lateinit var tvResult: TextView
+    private lateinit var btnHistory: ImageView
+    private lateinit var dbHelper: DatabaseHelper
 
-    private var currentInput = ""      
+    private var currentInput = ""
     private var isResultShown = false   // This will become true when the final result is on the screen after calculation
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +23,13 @@ class MainActivity : AppCompatActivity() {
 
         tvExpression = findViewById(R.id.tvExpression)
         tvResult = findViewById(R.id.tvResult)
+        btnHistory = findViewById(R.id.btnHistory)
+        dbHelper = DatabaseHelper(this)
+
+        btnHistory.setOnClickListener {
+            val intent = Intent(this, HistoryActivity::class.java)
+            startActivity(intent)
+        }
 
         setupNumberButtons()
         setupOperatorButtons()
@@ -39,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         // Iterating the button maps and assigning each of them a setOnClickListener
-        for ((id, value) in numberButtons) { 
+        for ((id, value) in numberButtons) {
             findViewById<AppCompatButton>(id).setOnClickListener {
                 onNumberPressed(value)
             }
@@ -95,9 +104,9 @@ class MainActivity : AppCompatActivity() {
 
         isResultShown = false
 
-        // Restricting the user not to use the operators consecutively 
+        // Restricting the user not to use the operators consecutively
         val lastChar = currentInput.lastOrNull()?.toString() ?: ""
-        if (lastChar in listOf("+", "-", "×", "÷")) {
+        if (lastChar == "+" || lastChar == "-" || lastChar == "×" || lastChar == "÷") {
             currentInput = currentInput.dropLast(1)
         }
 
@@ -107,6 +116,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun clearAll() {
+
+        // Save to the database if there is a result to be saved
+        if (currentInput.isNotEmpty() && isResultShown) {
+            dbHelper.insertHistory(
+                expression = tvExpression.text.toString(),
+                result = tvResult.text.toString()
+            )
+        }
+
+        // After operation, reset everything
         currentInput = ""
         isResultShown = false
         tvExpression.text = ""
@@ -153,12 +172,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun evaluateExpression(expression: String): Double {
-        // Removing the UI Button symbols with thei respective mathematical symbols
+        // Removing the UI Button symbols with their respective mathematical symbols
         val sanitized = expression.replace("×", "*").replace("÷", "/")
         return calculate(sanitized)
     }
-
-    @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
 
     // Building up the function for evaluation of the expression in BODMAS format
     private fun calculate(expression: String): Double {
@@ -169,9 +186,10 @@ class MainActivity : AppCompatActivity() {
 
         for (i in expression.indices) {
             val char = expression[i]
-            if (char == '-' && (i == 0 || expression[i - 1] in listOf('+', '-', '*', '/'))) {
+            if (char == '-' && (i == 0 || expression[i - 1] == '+' || expression[i - 1] == '-'
+                        || expression[i - 1] == '*' || expression[i - 1] == '/')) {
                 currentNumber += char  // negative sign, part of number
-            } else if (char in listOf('+', '-', '*', '/')) {
+            } else if (char == '+' || char == '-' || char == '*' || char == '/') {
                 if (currentNumber.isNotEmpty()) tokens.add(currentNumber)
                 currentNumber = ""
                 tokens.add(char.toString())
@@ -202,7 +220,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        //  Solving for addition and substraction since they have lower priority
+        //  Solving for addition and subtraction since they have lower priority
         var result = processedTokens[0].toDouble()
         var j = 1
         while (j < processedTokens.size) {
