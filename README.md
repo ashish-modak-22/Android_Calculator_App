@@ -5,8 +5,16 @@
 ![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
 ![XML](https://img.shields.io/badge/XML-FF6600?style=for-the-badge&logo=xml&logoColor=white)
-![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
- 
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![RecyclerView](https://img.shields.io/badge/RecyclerView-4285F4?style=for-the-badge&logo=android&logoColor=white)
+![Material Design](https://img.shields.io/badge/Material%20Design-757575?style=for-the-badge&logo=material-design&logoColor=white)
+![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white)
+![Dark Theme](https://img.shields.io/badge/Dark%20Theme-000000?style=for-the-badge&logo=android&logoColor=white)
+![Min SDK](https://img.shields.io/badge/Min%20SDK-21-brightgreen?style=for-the-badge&logo=android&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+
 A modern, fully functional calculator Android app built with Kotlin featuring a clean dark UI, rounded buttons, and full arithmetic support with BODMAS/PEMDAS precedence.
 
 </div>
